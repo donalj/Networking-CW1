@@ -220,26 +220,33 @@ def mapStuff(baseuk, basecanada):
     gmap = gmplot.GoogleMapPlotter(0, 0, 3, 'AIzaSyAtbi8u-E8RbY_Y0qeyUz4vdPJPGcLwY6c')
     heat = gmplot.GoogleMapPlotter(0, 0, 3, 'AIzaSyAtbi8u-E8RbY_Y0qeyUz4vdPJPGcLwY6c')
 
-    # gmap = buildMap(gmap, nonjanet, "blue")
-    # gmap = buildMap(gmap, janet, "green")
-    gmap = buildMap(gmap, canarie, "white")
-    gmap = buildMap(gmap, noncanarie, "red")
-    gmap.draw("canada.html")
+    gmap = buildMap(gmap, nonjanet, "blue")
+    gmap.draw("nonjanet.html")
 
-    heat = buildHeatMap(heat, canadaservers)
-    heat.draw("heatmap_ca.html")
+
+    gmap = gmplot.GoogleMapPlotter(0, 0, 3, 'AIzaSyAtbi8u-E8RbY_Y0qeyUz4vdPJPGcLwY6c')
+    gmap = buildMap(gmap, janet, "green")
+    gmap.draw("janet.html")
+
+    gmap = gmplot.GoogleMapPlotter(0, 0, 3, 'AIzaSyAtbi8u-E8RbY_Y0qeyUz4vdPJPGcLwY6c')
+    # gmap = buildMap(gmap, canarie, "white")
+    # gmap = buildMap(gmap, noncanarie, "red")
+    # gmap.draw("canada.html")
+
+    # heat = buildHeatMap(heat, canadaservers)
+    # heat.draw("heatmap_ca.html")
 
     # Canada
-    cfiles = glob.glob("./Canada/json/*")
-
-    for file in cfiles:
-        gmap = gmplot.GoogleMapPlotter(0, 0, 3, 'AIzaSyAtbi8u-E8RbY_Y0qeyUz4vdPJPGcLwY6c')
-        gmap = singleRoute(gmap, file, "canada")
-        try:
-            gmap.draw("./Canada/maps/" + file.replace("./Canada/json/", "") + ".html")
-        except TypeError:
-            print file
-
+    # cfiles = glob.glob("./Canada/json/*")
+    #
+    # for file in cfiles:
+    #     gmap = gmplot.GoogleMapPlotter(0, 0, 3, 'AIzaSyAtbi8u-E8RbY_Y0qeyUz4vdPJPGcLwY6c')
+    #     gmap = singleRoute(gmap, file, "canada")
+    #     try:
+    #         gmap.draw("./Canada/maps/" + file.replace("./Canada/json/", "") + ".html")
+    #     except TypeError:
+    #         print file
+    #
     # UK
     ukfiles = glob.glob("./newjsonroutes/*")
 
@@ -263,14 +270,15 @@ def mapStuff(baseuk, basecanada):
 
 
 def fixJanet(hop):
-    if "noncanarie" not in hop['Hostname']:
-        if ".ca" in hop['Hostname'][-4:] or "canarie" in hop['Hostname'] or "205.189.32" in hop['Hostname']:
-            print hop['Hostname']
-            hop['longitude'] = abs(hop['longitude']) * -1
-            return hop
-    elif "nonjanet" in hop['Hostname']:
-        return hop
-    elif "noncanarie" in hop['Hostname']:
+    # if "noncanarie" not in hop['Hostname']:
+    #     if ".ca" in hop['Hostname'][-4:] or "canarie" in hop['Hostname'] or "205.189.32" in hop['Hostname']:
+    #         print hop['Hostname']
+    #         hop['longitude'] = abs(hop['longitude']) * -1
+    #         return hop
+    # elif "noncanarie" in hop['Hostname']:
+        # return hop
+
+    if "nonjanet" in hop['Hostname']:
         return hop
     elif hop['Hostname'] == 'Camb-rbr1':
         hop['latitude'] = 52.2053
