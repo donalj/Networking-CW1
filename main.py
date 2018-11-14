@@ -2,6 +2,7 @@ import glob
 import json
 import os
 import time
+from pprint import pprint
 from urllib2 import urlopen
 
 from BeautifulSoup import BeautifulSoup
@@ -83,7 +84,7 @@ def stripHost(hop, country):
     name = hop['Hostname']
     org = hop['Org']
     if country == "canada":
-        if "Canarie" in org:
+        if "Canarie" in org or "canarie" in name:
             location = name
         else:
             location = "noncanarie: " + name
@@ -175,7 +176,7 @@ def buildHeatMap(gmap, servers):
         longs.append(server['longitude'])
         names.append(server['Hostname'])
 
-    gmap.heatmap(lats, longs, dissipating=True, radius=20)
+    gmap.heatmap(lats, longs, dissipating=True, radius=30)
     return gmap
 
 
@@ -216,23 +217,29 @@ def mapStuff(baseuk, basecanada):
     nonjanet = filter(lambda server: "nonjanet" in server['Hostname'], ukservers)
     noncanarie = filter(lambda server: "noncanarie" in server['Hostname'], canadaservers)
 
-    print len(canarie)
-    gmap = gmplot.GoogleMapPlotter(0, 0, 3, 'AIzaSyAtbi8u-E8RbY_Y0qeyUz4vdPJPGcLwY6c')
-    heat = gmplot.GoogleMapPlotter(0, 0, 3, 'AIzaSyAtbi8u-E8RbY_Y0qeyUz4vdPJPGcLwY6c')
+    for server in canadaservers:
+        print server['Hostname']
+    # pprint(canadaservers)
+    # gmap = gmplot.GoogleMapPlotter(0, 0, 3, 'AIzaSyAtbi8u-E8RbY_Y0qeyUz4vdPJPGcLwY6c')
+    #
+    # gmap = buildMap(gmap, nonjanet, "blue")
+    # gmap.draw("nonjanet.html")
 
-    gmap = buildMap(gmap, nonjanet, "blue")
-    gmap.draw("nonjanet.html")
 
-
-    gmap = gmplot.GoogleMapPlotter(0, 0, 3, 'AIzaSyAtbi8u-E8RbY_Y0qeyUz4vdPJPGcLwY6c')
-    gmap = buildMap(gmap, janet, "green")
-    gmap.draw("janet.html")
+    # gmap = gmplot.GoogleMapPlotter(0, 0, 3, 'AIzaSyAtbi8u-E8RbY_Y0qeyUz4vdPJPGcLwY6c')
+    # gmap = buildMap(gmap, janet, "green")
+    # gmap.draw("janet.html")
 
     gmap = gmplot.GoogleMapPlotter(0, 0, 3, 'AIzaSyAtbi8u-E8RbY_Y0qeyUz4vdPJPGcLwY6c')
     # gmap = buildMap(gmap, canarie, "white")
     # gmap = buildMap(gmap, noncanarie, "red")
     # gmap.draw("canada.html")
 
+    # heat = gmplot.GoogleMapPlotter(0, 0, 3, 'AIzaSyAtbi8u-E8RbY_Y0qeyUz4vdPJPGcLwY6c')
+    # heat = buildHeatMap(heat, ukservers)
+    # heat.draw("heatmap_uk.html")
+
+    # heat = gmplot.GoogleMapPlotter(0, 0, 3, 'AIzaSyAtbi8u-E8RbY_Y0qeyUz4vdPJPGcLwY6c')
     # heat = buildHeatMap(heat, canadaservers)
     # heat.draw("heatmap_ca.html")
 

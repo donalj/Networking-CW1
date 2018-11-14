@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/main.py" line="235" />
+    <bookmark url="file://$PROJECT_DIR$/main.py" line="242" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af984b3d-f2c2-4c12-a5db-58d4408e64ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/janet.html" beforeDir="false" afterPath="$PROJECT_DIR$/janet.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/canada_combined.html" beforeDir="false" afterPath="$PROJECT_DIR$/canada_combined.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/heatmap.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/heatmap_uk.html" beforeDir="false" afterPath="$PROJECT_DIR$/heatmap_uk.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/rhul.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nonjanet.html" beforeDir="false" afterPath="$PROJECT_DIR$/nonjanet.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,12 +46,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="91" />
-          <entry key="py" value="11535" />
+          <entry key="py" value="11713" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="11626" />
+          <entry key="Python" value="11804" />
         </counts>
       </usages-collector>
     </session>
@@ -61,17 +61,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="281" column="18" lean-forward="true" selection-start-line="281" selection-start-column="18" selection-end-line="281" selection-end-column="18" />
+            <state relative-caret-position="-522">
+              <caret line="86" column="48" selection-start-line="86" selection-start-column="48" selection-end-line="86" selection-end-column="48" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
                 <element signature="e#3260#6010#0" />
-                <element signature="e#6046#6660#0" />
                 <element signature="e#8931#9282#0" />
-                <element signature="e#9925#10190#0" />
                 <element signature="e#10221#10521#0" />
                 <element signature="e#10561#10877#0" />
-                <element signature="e#6392#8729#0" />
+                <element signature="e#8921#23304#0" />
               </folding>
             </state>
           </provider>
@@ -106,6 +104,10 @@
       <find>shef</find>
       <find>'] = -</find>
       <find>-1</find>
+      <find>geant</find>
+      <find>ca</find>
+      <find>.ca</find>
+      <find>sr</find>
     </findStrings>
     <replaceStrings>
       <replace>Node</replace>
@@ -208,7 +210,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="134" y="35" width="3066" height="1765" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24983455" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -268,17 +269,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="281" column="18" lean-forward="true" selection-start-line="281" selection-start-column="18" selection-end-line="281" selection-end-column="18" />
+        <state relative-caret-position="-522">
+          <caret line="86" column="48" selection-start-line="86" selection-start-column="48" selection-end-line="86" selection-end-column="48" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
             <element signature="e#3260#6010#0" />
-            <element signature="e#6046#6660#0" />
             <element signature="e#8931#9282#0" />
-            <element signature="e#9925#10190#0" />
             <element signature="e#10221#10521#0" />
             <element signature="e#10561#10877#0" />
-            <element signature="e#6392#8729#0" />
+            <element signature="e#8921#23304#0" />
           </folding>
         </state>
       </provider>
