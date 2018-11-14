@@ -338,29 +338,26 @@ def buildCompound(gmap, country):
 def mapStuff(baseuk, basecanada):
     canadaservers = [dict(tupleized) for tupleized in set(tuple(item.items()) for item in basecanada)]
     canadaservers = sorted(canadaservers, key=lambda k: k['Hostname'])
-
     ukservers = [dict(tupleized) for tupleized in set(tuple(item.items()) for item in baseuk)]
     ukservers = sorted(ukservers, key=lambda k: k['Hostname'])
-
     janet = filter(lambda server: not "nonjanet" in server['Hostname'], ukservers)
     canarie = filter(lambda server: not "noncanarie" in server['Hostname'], canadaservers)
-
     nonjanet = filter(lambda server: "nonjanet" in server['Hostname'], ukservers)
     noncanarie = filter(lambda server: "noncanarie" in server['Hostname'], canadaservers)
 
-
+    print len(canarie)
     gmap = gmplot.GoogleMapPlotter(0, 0, 3, 'AIzaSyAtbi8u-E8RbY_Y0qeyUz4vdPJPGcLwY6c')
     heat = gmplot.GoogleMapPlotter(0, 0, 3, 'AIzaSyAtbi8u-E8RbY_Y0qeyUz4vdPJPGcLwY6c')
 
 
     # gmap = buildMap(gmap, nonjanet, "blue")
-    #gmap = buildMap(gmap, janet, "green")
-    # gmap = buildMap(gmap, canarie, "white")
-    # gmap = buildMap(gmap, noncanarie, "red")
-    gmap.draw("normal.html")
+    # gmap = buildMap(gmap, janet, "green")
+    gmap = buildMap(gmap, canarie, "white")
+    gmap = buildMap(gmap, noncanarie, "red")
+    gmap.draw("canada.html")
 
-    heat = buildHeatMap(heat, ukservers)
-    heat.draw("heatmap.html")
+    heat = buildHeatMap(heat, canadaservers)
+    heat.draw("heatmap_ca.html")
     #
     # s = ""
     # for node in janet:
@@ -397,11 +394,23 @@ def mapStuff(baseuk, basecanada):
     bigboi = gmplot.GoogleMapPlotter(0, 0, 3, 'AIzaSyAtbi8u-E8RbY_Y0qeyUz4vdPJPGcLwY6c')
     bigboi = buildCompound(bigboi, "canada")
 
-    bigboi.draw("combined.html")
+    bigboi.draw("canada_combined.html")
+
+    bigboi = gmplot.GoogleMapPlotter(0, 0, 3, 'AIzaSyAtbi8u-E8RbY_Y0qeyUz4vdPJPGcLwY6c')
+    bigboi = buildCompound(bigboi, "uk")
+
+    bigboi.draw("janet_combined.html")
 
 
 def fixJanet(hop):
-    if "non" in hop['Hostname']:
+    if "noncanarie" not in hop['Hostname']:
+        if ".ca" in hop['Hostname'][-4:] or "canarie" in hop['Hostname'] or "205.189.32" in hop['Hostname']:
+            print hop['Hostname']
+            hop['longitude'] = abs(hop['longitude'])*-1
+            return hop
+    elif "nonjanet" in hop['Hostname']:
+        return hop
+    elif "noncanarie" in hop['Hostname']:
         return hop
     elif hop['Hostname'] == 'Camb-rbr1':
         hop['latitude'] = 52.2053
@@ -901,4 +910,4 @@ if __name__ == "__main__":
     # canadaNodes = getNodes(coutput + "*", "canada")
     # uknodes = getNodes(ukoutput + "*", "uk")
     # uknodes = getNodes("./trtemp/*", "uk")
-    mapStuff(baseuk, basecanada)
+    mapStuff(baseuk, basecanada)#
