@@ -1,103 +1,12 @@
 import glob
-import pprint
-import time
-import os
-from gmplot import gmplot
 import json
+import os
+import time
 from urllib2 import urlopen
-import numpy
-import random
-import matplotlib.pyplot as plt
-import networkx as nx
+
 from BeautifulSoup import BeautifulSoup
-import re
+from gmplot import gmplot
 
-
-class Node:
-    def __init__(self, node):
-        self.name = node
-        self.neighbors = []
-
-    def add_neighbor(self, neighbor):
-        if isinstance(neighbor, Node):
-            if neighbor.name not in self.neighbors:
-                self.neighbors.append(neighbor.name)
-                neighbor.neighbors.append(self.name)
-                self.neighbors = sorted(self.neighbors)
-                neighbor.neighbors = sorted(neighbor.neighbors)
-        else:
-            return False
-
-    def add_neighbors(self, neighbors):
-        for neighbor in neighbors:
-            if isinstance(neighbor, Node):
-                if neighbor.name not in self.neighbors:
-                    self.neighbors.append(neighbor.name)
-                    neighbor.neighbors.append(self.name)
-                    self.neighbors = sorted(self.neighbors)
-                    neighbor.neighbors = sorted(neighbor.neighbors)
-            else:
-                return False
-
-    def __repr__(self):
-        return str(self.neighbors)
-
-    def __name__(self):
-        return self.name
-
-
-class Graph1:
-    def __init__(self):
-        self.nodes = {}
-
-    def add_node(self, node):
-        if isinstance(node, Node):
-            self.nodes[node.name] = node.neighbors
-
-    def add_nodes(self, nodes):
-        for node in nodes:
-            if isinstance(node, Node):
-                self.nodes[node.name] = node.neighbors
-
-    def add_edge(self, node_from, node_to):
-        if isinstance(node_from, Node) and isinstance(node_to, Node):
-            node_from.add_neighbor(node_to)
-            if isinstance(node_from, Node) and isinstance(node_to, Node):
-                self.nodes[node_from.name] = node_from.neighbors
-                self.nodes[node_to.name] = node_to.neighbors
-
-    def add_edges(self, edges):
-        for edge in edges:
-            self.add_edge(edge[0], edge[1])
-
-    def adjacencyList(self):
-        if len(self.nodes) >= 1:
-            return [str(key) + ":" + str(self.nodes[key]) for key in self.nodes.keys()]
-        else:
-            return dict()
-
-    def adjacencyMatrix(self):
-        if len(self.nodes) >= 1:
-            self.node_names = sorted(g.nodes.keys())
-            self.node_indices = dict(zip(self.node_names, range(len(self.node_names))))
-            import numpy as np
-            self.adjacency_matrix = np.zeros(shape=(len(self.nodes), len(self.nodes)))
-            for i in range(len(self.node_names)):
-                for j in range(i, len(self.nodes)):
-                    for el in g.nodes[self.node_names[i]]:
-                        j = g.node_indices[el]
-                        self.adjacency_matrix[i, j] = 1
-            return self.adjacency_matrix
-        else:
-            return dict()
-
-
-def graph(g):
-    """ Function to print a graph as adjacency list and adjacency matrix. """
-    return str(g.adjacencyList()) + '\n' + '\n' + str(g.adjacencyMatrix())
-
-
-###################################################################################
 
 def parseFiles(input, target):
     files = glob.glob(input)
@@ -194,44 +103,6 @@ def stripHost(hop, country):
         return location
 
 
-def getNodes(dir, country):
-    servers = []
-    files = glob.glob(dir)
-
-    for f in files:
-        with open(f) as data_file:
-            data = json.load(data_file)
-            for index, hop in enumerate(data):
-                location = stripHost(hop, country)
-                if location in servers:
-
-                    if 0 < index < len(data) - 1:
-                        prev = stripHost(data[index - 1], country)
-                        next = stripHost(data[index + 1], country)
-                        x.add_neighbor(Node(prev))
-                        x.add_neighbor(Node(next))
-                        servers[index] = x
-
-                    elif index == 0:
-                        next = stripHost(data[index + 1], country)
-                        x.add_neighbor(Node(next))
-                        servers[index] = x
-
-                    else:
-                        prev = stripHost(data[index - 1], country)
-                        x.add_neighbor(Node(prev))
-                        servers[index] = x
-                else:
-                    x = Node(location)
-                    if 0 < index < len(data) - 1:
-                        prev = stripHost(data[index - 1], country)
-                        next = stripHost(data[index + 1], country)
-                        x.add_neighbor(Node(prev))
-                        x.add_neighbor(Node(next))
-                    servers.append(x)
-    return servers
-
-
 def getServers(loc, country):
     servers = []
     files = glob.glob(loc + "/*")
@@ -246,7 +117,7 @@ def getServers(loc, country):
                         check = False
                 if check:
                     hop['Hostname'] = stripHost(hop, country)
-                    hop = fixJanet(hop);
+                    hop = fixJanet(hop)
                     servers.append(hop)
     return servers
 
@@ -278,7 +149,6 @@ def buildMap(gmap, servers, colour):
 
 
 def singleRoute(gmap, uni, country):
-    # print uni
     source = uni
     lats = []
     longs = []
@@ -322,9 +192,10 @@ def scrapeLinks(input):
     canadian.write(shit)
     canadian.close()
 
+
 def buildCompound(gmap, country):
     ukfiles = glob.glob("./newjsonroutes/*")
-    cfiles =  glob.glob("./Canada/json/*")
+    cfiles = glob.glob("./Canada/json/*")
     if country == "uk":
         for file in ukfiles:
             gmap = singleRoute(gmap, file, "uk")
@@ -349,7 +220,6 @@ def mapStuff(baseuk, basecanada):
     gmap = gmplot.GoogleMapPlotter(0, 0, 3, 'AIzaSyAtbi8u-E8RbY_Y0qeyUz4vdPJPGcLwY6c')
     heat = gmplot.GoogleMapPlotter(0, 0, 3, 'AIzaSyAtbi8u-E8RbY_Y0qeyUz4vdPJPGcLwY6c')
 
-
     # gmap = buildMap(gmap, nonjanet, "blue")
     # gmap = buildMap(gmap, janet, "green")
     gmap = buildMap(gmap, canarie, "white")
@@ -358,16 +228,6 @@ def mapStuff(baseuk, basecanada):
 
     heat = buildHeatMap(heat, canadaservers)
     heat.draw("heatmap_ca.html")
-    #
-    # s = ""
-    # for node in janet:
-    #     s = s + node['Hostname'] + "\n"
-    #
-    # jan = open("janet_servers.txt", "w")
-    # jan.write(s)
-    # jan.close()
-
-
 
     # Canada
     cfiles = glob.glob("./Canada/json/*")
@@ -406,7 +266,7 @@ def fixJanet(hop):
     if "noncanarie" not in hop['Hostname']:
         if ".ca" in hop['Hostname'][-4:] or "canarie" in hop['Hostname'] or "205.189.32" in hop['Hostname']:
             print hop['Hostname']
-            hop['longitude'] = abs(hop['longitude'])*-1
+            hop['longitude'] = abs(hop['longitude']) * -1
             return hop
     elif "nonjanet" in hop['Hostname']:
         return hop
@@ -895,8 +755,6 @@ def fixJanet(hop):
     return hop
 
 
-
-
 if __name__ == "__main__":
     ukinput = './traceroutes/*.txt'
     ukoutput = './newjsonroutes/'
@@ -907,7 +765,4 @@ if __name__ == "__main__":
     baseuk = getServers(ukoutput, "uk")
     basecanada = getServers(coutput, "canada")
 
-    # canadaNodes = getNodes(coutput + "*", "canada")
-    # uknodes = getNodes(ukoutput + "*", "uk")
-    # uknodes = getNodes("./trtemp/*", "uk")
-    mapStuff(baseuk, basecanada)#
+    mapStuff(baseuk, basecanada)  #
