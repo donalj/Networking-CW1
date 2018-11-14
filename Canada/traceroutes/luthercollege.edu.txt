@@ -1,0 +1,16 @@
+gw-eduroam-a.wireless.bath.ac.uk,138.38.191.254
+palo-swallow-wl-vrf.bath.ac.uk,138.38.255.118
+bath-gw-1-palo.bath.ac.uk,193.63.64.174
+xe-1-2-0.bathub-rbr1.ja.net,146.97.144.33
+xe-1-2-0.briswe-rbr1.ja.net,146.97.67.65
+ae22.londpg-sbr2.ja.net,146.97.37.201
+ae29.londhx-sbr1.ja.net,146.97.33.1
+ae0.londhx-ban2.ja.net,146.97.35.198
+ae5.cr10-lon2.ip4.gtt.net,46.33.78.85
+xe-8-3-3.cr1-chi1.ip4.gtt.net,213.254.231.173
+ip4.gtt.net,173.205.40.26
+*,*
+dcpe1-coreb.ord1.rackspace.net,50.56.6.163
+corea-core5.ord1.rackspace.net,50.56.6.129
+core6-aggr1501a-12.ord1.rackspace.net,161.47.57.81
+184-106-81-110.static.cloud-ips.com,184.106.81.110

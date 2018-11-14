@@ -1,0 +1,17 @@
+gw-eduroam-a.wireless.bath.ac.uk,138.38.191.254
+palo-swallow-wl-vrf.bath.ac.uk,138.38.255.118
+bath-gw-1-palo.bath.ac.uk,193.63.64.174
+xe-1-2-0.bathub-rbr1.ja.net,146.97.144.33
+xe-1-2-0.briswe-rbr1.ja.net,146.97.67.65
+ae22.londpg-sbr2.ja.net,146.97.37.201
+ae29.londhx-sbr1.ja.net,146.97.33.1
+ae0.londhx-ban2.ja.net,146.97.35.198
+ldn-b3-link.telia.net,62.115.148.158
+ldn-bb3-link.telia.net,62.115.134.134
+ldn-b1-link.telia.net,62.115.143.27
+rackspace-ic-305654-ldn-b1.c.telia.net,62.115.41.54
+*,*
+134.213.97.169,134.213.97.169
+coreb-core5.lon3.rackspace.net,164.177.137.23
+corea-core5.lon3.rackspace.net,164.177.137.11
+162.13.24.47,162.13.24.47

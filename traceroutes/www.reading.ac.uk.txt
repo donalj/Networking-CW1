@@ -1,0 +1,10 @@
+gw-eduroam-a.wireless.bath.ac.uk,138.38.191.254
+palo-swallow-wl-vrf.bath.ac.uk,138.38.255.118
+bath-gw-1-palo.bath.ac.uk,193.63.64.174
+xe-1-2-0.bathub-rbr1.ja.net,146.97.144.33
+xe-1-2-0.briswe-rbr1.ja.net,146.97.67.65
+ae22.londpg-sbr2.ja.net,146.97.37.201
+ae19.readdy-rbr1.ja.net,146.97.37.194
+reading-university-1.ja.net,193.63.109.26
+xe-0-0-7.fw-ext.net.rdg.ac.uk,134.225.255.38
+wap-slb-vip.rdg.ac.uk,134.225.0.151

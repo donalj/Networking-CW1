@@ -1,0 +1,108 @@
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>Google Maps - pygmaps </title>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true_or_false&key=AIzaSyAtbi8u-E8RbY_Y0qeyUz4vdPJPGcLwY6c"></script>
+<script type="text/javascript">
+	function initialize() {
+		var centerlatlng = new google.maps.LatLng(0.000000, 0.000000);
+		var myOptions = {
+			zoom: 3,
+			center: centerlatlng,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+		var latlng = new google.maps.LatLng(51.375100, -2.361700);
+		var img = new google.maps.MarkerImage('/home/donal/.local/lib/python2.7/site-packages/gmplot/markers/FF0000.png');
+		var marker = new google.maps.Marker({
+		title: "nonjanet: palo-swallow-wl-vrf.bath.ac.uk",
+		icon: img,
+		position: latlng
+		});
+		marker.setMap(map);
+
+		var latlng = new google.maps.LatLng(51.375100, -2.361700);
+		var img = new google.maps.MarkerImage('/home/donal/.local/lib/python2.7/site-packages/gmplot/markers/FF0000.png');
+		var marker = new google.maps.Marker({
+		title: "nonjanet: bath-gw-1-palo.bath.ac.uk",
+		icon: img,
+		position: latlng
+		});
+		marker.setMap(map);
+
+		var latlng = new google.maps.LatLng(51.381100, -2.359000);
+		var img = new google.maps.MarkerImage('/home/donal/.local/lib/python2.7/site-packages/gmplot/markers/FF0000.png');
+		var marker = new google.maps.Marker({
+		title: "bathub-rbr1",
+		icon: img,
+		position: latlng
+		});
+		marker.setMap(map);
+
+		var latlng = new google.maps.LatLng(51.454500, -2.587900);
+		var img = new google.maps.MarkerImage('/home/donal/.local/lib/python2.7/site-packages/gmplot/markers/FF0000.png');
+		var marker = new google.maps.Marker({
+		title: "briswe-rbr1",
+		icon: img,
+		position: latlng
+		});
+		marker.setMap(map);
+
+		var latlng = new google.maps.LatLng(51.507400, -0.127800);
+		var img = new google.maps.MarkerImage('/home/donal/.local/lib/python2.7/site-packages/gmplot/markers/FF0000.png');
+		var marker = new google.maps.Marker({
+		title: "londpg-sbr2",
+		icon: img,
+		position: latlng
+		});
+		marker.setMap(map);
+
+		var latlng = new google.maps.LatLng(51.507400, -0.127800);
+		var img = new google.maps.MarkerImage('/home/donal/.local/lib/python2.7/site-packages/gmplot/markers/FF0000.png');
+		var marker = new google.maps.Marker({
+		title: "londic",
+		icon: img,
+		position: latlng
+		});
+		marker.setMap(map);
+
+		var latlng = new google.maps.LatLng(51.498800, -0.174900);
+		var img = new google.maps.MarkerImage('/home/donal/.local/lib/python2.7/site-packages/gmplot/markers/FF0000.png');
+		var marker = new google.maps.Marker({
+		title: "imperial-college",
+		icon: img,
+		position: latlng
+		});
+		marker.setMap(map);
+
+var PolylineCoordinates = [
+new google.maps.LatLng(51.375100, -2.361700),
+new google.maps.LatLng(51.375100, -2.361700),
+new google.maps.LatLng(51.381100, -2.359000),
+new google.maps.LatLng(51.454500, -2.587900),
+new google.maps.LatLng(51.507400, -0.127800),
+new google.maps.LatLng(51.507400, -0.127800),
+new google.maps.LatLng(51.498800, -0.174900),
+];
+
+var Path = new google.maps.Polyline({
+clickable: false,
+geodesic: true,
+path: PolylineCoordinates,
+strokeColor: "#0000FF",
+strokeOpacity: 1.000000,
+strokeWeight: 5
+});
+
+Path.setMap(map);
+
+
+	}
+</script>
+</head>
+<body style="margin:0px; padding:0px;" onload="initialize()">
+	<div id="map_canvas" style="width: 100%; height: 100%;"></div>
+</body>
+</html>

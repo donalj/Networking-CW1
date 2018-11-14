@@ -1,0 +1,16 @@
+gw-eduroam-a.wireless.bath.ac.uk,138.38.191.254
+palo-swallow-wl-vrf.bath.ac.uk,138.38.255.118
+bath-gw-1-palo.bath.ac.uk,193.63.64.174
+xe-1-2-0.bathub-rbr1.ja.net,146.97.144.33
+xe-1-2-0.briswe-rbr1.ja.net,146.97.67.65
+ae22.londpg-sbr2.ja.net,146.97.37.201
+ae30.londtw-sbr2.ja.net,146.97.33.6
+ae28.londtt-sbr1.ja.net,146.97.33.61
+ae0.londtt-ban3.ja.net,146.97.35.170
+10ge.xe-0-0-0.linxb.ldn-teleh-dis-1.peer1.net,195.66.224.156
+*,*
+*,*
+*,*
+*,*
+*,*
+vps.nscad.ca,67.231.28.58

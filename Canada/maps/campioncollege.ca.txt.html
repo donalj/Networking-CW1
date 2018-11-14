@@ -1,0 +1,158 @@
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>Google Maps - pygmaps </title>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true_or_false&key=AIzaSyAtbi8u-E8RbY_Y0qeyUz4vdPJPGcLwY6c"></script>
+<script type="text/javascript">
+	function initialize() {
+		var centerlatlng = new google.maps.LatLng(0.000000, 0.000000);
+		var myOptions = {
+			zoom: 3,
+			center: centerlatlng,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+		var latlng = new google.maps.LatLng(51.375100, -2.361700);
+		var img = new google.maps.MarkerImage('/home/donal/.local/lib/python2.7/site-packages/gmplot/markers/FF0000.png');
+		var marker = new google.maps.Marker({
+		title: "noncanarie: gw-eduroam-a.wireless.bath.ac.uk",
+		icon: img,
+		position: latlng
+		});
+		marker.setMap(map);
+
+		var latlng = new google.maps.LatLng(51.375100, -2.361700);
+		var img = new google.maps.MarkerImage('/home/donal/.local/lib/python2.7/site-packages/gmplot/markers/FF0000.png');
+		var marker = new google.maps.Marker({
+		title: "noncanarie: palo-swallow-wl-vrf.bath.ac.uk",
+		icon: img,
+		position: latlng
+		});
+		marker.setMap(map);
+
+		var latlng = new google.maps.LatLng(51.375100, -2.361700);
+		var img = new google.maps.MarkerImage('/home/donal/.local/lib/python2.7/site-packages/gmplot/markers/FF0000.png');
+		var marker = new google.maps.Marker({
+		title: "noncanarie: bath-gw-1-palo.bath.ac.uk",
+		icon: img,
+		position: latlng
+		});
+		marker.setMap(map);
+
+		var latlng = new google.maps.LatLng(51.521400, -0.112837);
+		var img = new google.maps.MarkerImage('/home/donal/.local/lib/python2.7/site-packages/gmplot/markers/FF0000.png');
+		var marker = new google.maps.Marker({
+		title: "noncanarie: xe-1-2-0.bathub-rbr1.ja.net",
+		icon: img,
+		position: latlng
+		});
+		marker.setMap(map);
+
+		var latlng = new google.maps.LatLng(51.521400, -0.112837);
+		var img = new google.maps.MarkerImage('/home/donal/.local/lib/python2.7/site-packages/gmplot/markers/FF0000.png');
+		var marker = new google.maps.Marker({
+		title: "noncanarie: xe-1-2-0.briswe-rbr1.ja.net",
+		icon: img,
+		position: latlng
+		});
+		marker.setMap(map);
+
+		var latlng = new google.maps.LatLng(51.521400, -0.112837);
+		var img = new google.maps.MarkerImage('/home/donal/.local/lib/python2.7/site-packages/gmplot/markers/FF0000.png');
+		var marker = new google.maps.Marker({
+		title: "noncanarie: ae22.londpg-sbr2.ja.net",
+		icon: img,
+		position: latlng
+		});
+		marker.setMap(map);
+
+		var latlng = new google.maps.LatLng(51.521400, -0.112837);
+		var img = new google.maps.MarkerImage('/home/donal/.local/lib/python2.7/site-packages/gmplot/markers/FF0000.png');
+		var marker = new google.maps.Marker({
+		title: "noncanarie: ae29.londhx-sbr1.ja.net",
+		icon: img,
+		position: latlng
+		});
+		marker.setMap(map);
+
+		var latlng = new google.maps.LatLng(51.521400, -0.112837);
+		var img = new google.maps.MarkerImage('/home/donal/.local/lib/python2.7/site-packages/gmplot/markers/FF0000.png');
+		var marker = new google.maps.Marker({
+		title: "noncanarie: ae0.londhx-ban2.ja.net",
+		icon: img,
+		position: latlng
+		});
+		marker.setMap(map);
+
+		var latlng = new google.maps.LatLng(50.052200, 8.695240);
+		var img = new google.maps.MarkerImage('/home/donal/.local/lib/python2.7/site-packages/gmplot/markers/FF0000.png');
+		var marker = new google.maps.Marker({
+		title: "noncanarie: ae5.cr10-lon2.ip4.gtt.net",
+		icon: img,
+		position: latlng
+		});
+		marker.setMap(map);
+
+		var latlng = new google.maps.LatLng(34.052200, -118.244000);
+		var img = new google.maps.MarkerImage('/home/donal/.local/lib/python2.7/site-packages/gmplot/markers/FF0000.png');
+		var marker = new google.maps.Marker({
+		title: "noncanarie: et-9-1-0.cr9-nyc3.ip4.gtt.net",
+		icon: img,
+		position: latlng
+		});
+		marker.setMap(map);
+
+		var latlng = new google.maps.LatLng(38.837700, -76.798000);
+		var img = new google.maps.MarkerImage('/home/donal/.local/lib/python2.7/site-packages/gmplot/markers/FF0000.png');
+		var marker = new google.maps.Marker({
+		title: "noncanarie: ip4.gtt.net",
+		icon: img,
+		position: latlng
+		});
+		marker.setMap(map);
+
+		var latlng = new google.maps.LatLng(44.042100, -77.738200);
+		var img = new google.maps.MarkerImage('/home/donal/.local/lib/python2.7/site-packages/gmplot/markers/FF0000.png');
+		var marker = new google.maps.Marker({
+		title: "noncanarie: 204.101.4.238",
+		icon: img,
+		position: latlng
+		});
+		marker.setMap(map);
+
+var PolylineCoordinates = [
+new google.maps.LatLng(51.375100, -2.361700),
+new google.maps.LatLng(51.375100, -2.361700),
+new google.maps.LatLng(51.375100, -2.361700),
+new google.maps.LatLng(51.521400, -0.112837),
+new google.maps.LatLng(51.521400, -0.112837),
+new google.maps.LatLng(51.521400, -0.112837),
+new google.maps.LatLng(51.521400, -0.112837),
+new google.maps.LatLng(51.521400, -0.112837),
+new google.maps.LatLng(50.052200, 8.695240),
+new google.maps.LatLng(34.052200, -118.244000),
+new google.maps.LatLng(38.837700, -76.798000),
+new google.maps.LatLng(44.042100, -77.738200),
+];
+
+var Path = new google.maps.Polyline({
+clickable: false,
+geodesic: true,
+path: PolylineCoordinates,
+strokeColor: "#0000FF",
+strokeOpacity: 1.000000,
+strokeWeight: 5
+});
+
+Path.setMap(map);
+
+
+	}
+</script>
+</head>
+<body style="margin:0px; padding:0px;" onload="initialize()">
+	<div id="map_canvas" style="width: 100%; height: 100%;"></div>
+</body>
+</html>

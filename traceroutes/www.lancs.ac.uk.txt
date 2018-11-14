@@ -1,0 +1,14 @@
+gw-eduroam-a.wireless.bath.ac.uk,138.38.191.254
+palo-swallow-wl-vrf.bath.ac.uk,138.38.255.118
+bath-gw-1-palo.bath.ac.uk,193.63.64.174
+xe-1-2-0.bathub-rbr1.ja.net,146.97.144.33
+xe-1-2-0.briswe-rbr1.ja.net,146.97.67.65
+ae22.londpg-sbr2.ja.net,146.97.37.201
+ae31.erdiss-sbr2.ja.net,146.97.33.22
+ae29.manckh-sbr2.ja.net,146.97.33.42
+ae24.lanclu-rbr1.ja.net,146.97.38.58
+lancaster-university.ja.net,194.81.46.2
+isbfw01-isborder01.rtr.lancs.ac.uk,148.88.253.198
+ismx-issrx.rtr.lancs.ac.uk,148.88.255.17
+dc.iss.srv.rtrcloud.lancs.ac.uk,148.88.253.3
+www.lancs.ac.uk,148.88.65.80
